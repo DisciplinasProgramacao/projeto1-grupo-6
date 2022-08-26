@@ -6,15 +6,18 @@ public class Agenda {
     //Declaracao e inicializacao das variaveis
     private final ArrayList<Data> datas = new ArrayList<>();
     private final ArrayList<String> compromissos = new ArrayList<>();
-    private int quantidade_compromissos=0;
+    private int quantidadeCompromissosNaLista=0;
 
     //Metodo que adciona compromisso e data nas listas
-    public void adcionarCompromisso(String compromisso, int dia, int mes, int ano) throws InvalidAttributeValueException {
+    public void adcionarCompromisso(String compromisso, Data data, int repetirCada_X_Dias, int quantidadeDeVezesDoCompromisso){
 
-        Data data = new Data(dia, mes, ano);
-        datas.add(data);
-        compromissos.add(compromisso);
-        quantidade_compromissos++;
+        for(int i=0; i<quantidadeDeVezesDoCompromisso; i++){
+            datas.add(data);
+            compromissos.add(compromisso);
+            quantidadeCompromissosNaLista++;
+            data.addDias(repetirCada_X_Dias);
+        }
+
 
     }
 
@@ -22,7 +25,7 @@ public class Agenda {
     public String verTodosCompromissos(){
 
         StringBuilder output = new StringBuilder();
-        for(int i=0, z=1; i<quantidade_compromissos; i++, z++){
+        for(int i = 0, z = 1; i< quantidadeCompromissosNaLista; i++, z++){
             output.append(z);
             output.append("-");
             output.append(compromissos.get(i));
@@ -34,4 +37,5 @@ public class Agenda {
         return output.toString();
 
     }
+
 }
