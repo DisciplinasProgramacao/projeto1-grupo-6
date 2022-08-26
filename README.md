@@ -7,7 +7,7 @@ Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 * Pedro de Sousa Motta
 * Kaio Henrique Oliveira da Silveira Barbosa
 * Thiago Souza Gomes
-* Nome completo do aluno 4
+* Pedro Luis Gonçalves
 
 ## Professores responsáveis
 
