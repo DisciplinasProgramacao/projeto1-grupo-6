@@ -9,10 +9,17 @@ public class Agenda {
     private int quantidadeCompromissosNaLista=0;
 
     //Metodo que adciona compromisso e data nas listas
-    public void adcionarCompromisso(String compromisso, Data data, int repetirCada_X_Dias, int quantidadeDeVezesDoCompromisso){
+    public void adcionarCompromisso(String compromisso, Data data, int repetirCada_X_Dias, int quantidadeDeVezesDoCompromisso) throws InvalidAttributeValueException {
 
         for(int i=0; i<quantidadeDeVezesDoCompromisso; i++){
-            datas.add(data);
+
+            int dia = data.getDia();
+            int mes = data.getMes();
+            int ano = data.getAno();
+
+            Data data_auxiliar = new Data(dia, mes, ano);
+
+            datas.add(data_auxiliar);
             compromissos.add(compromisso);
             quantidadeCompromissosNaLista++;
             data.addDias(repetirCada_X_Dias);

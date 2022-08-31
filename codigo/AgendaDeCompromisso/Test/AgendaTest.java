@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import javax.management.InvalidAttributeValueException;
@@ -21,9 +20,8 @@ public class AgendaTest {
 
         Agenda agenda = new Agenda();
         agenda.adcionarCompromisso("Dentista", data1, 2, 2);
-        //agenda.adcionarCompromisso("Ir ao mercado", data2);
-        //assertEquals("1-Dentista, 20/07/2022\n2-Ir ao mercado, 19/12/2022\n", agenda.verTodosCompromissos());
-        assertEquals("1-Dentista, 20/07/2022\n2-Dentista, 22/07/2022\n", agenda.verTodosCompromissos());
+        agenda.adcionarCompromisso("Ir ao mercado", data2, 0, 1);
+        assertEquals("1-Dentista, 20/07/2022\n2-Dentista, 22/07/2022\n3-Ir ao mercado, 19/12/2022\n", agenda.verTodosCompromissos());
 
     }
 
