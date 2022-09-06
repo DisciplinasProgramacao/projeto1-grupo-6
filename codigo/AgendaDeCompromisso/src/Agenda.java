@@ -44,5 +44,20 @@ public class Agenda {
         return output.toString();
 
     }
+    
+         // Metodo para listar os commpromissos entre um periodo selecionado
+     public String listarCompromissos(Data dataInicial, Data dataFinal) {
+
+        for (int i =0; i<datas.size(); i++ ){
+
+            if(datas.get(i).compareTo(dataInicial) >= 0) {
+                if(dataFinal.compareTo(datas.get(i)) >= 0) {
+                    System.out.println("Compromisso - " + compromissos.get(i) + ": " + datas.get(i));
+                }
+            }        
+        }       
+
+        return " ";
+    }
 
 }
