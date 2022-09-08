@@ -1,16 +1,26 @@
 import javax.management.InvalidAttributeValueException;
 
+/*
+    Classe Data que irá receber e tratar valores referentes ao dia, mês e ano para controle da agenda de compromissos
+ */
 public class Data implements Comparable<Data>{
 
-    //Declaracao das variaveis
+    //#region variáveis para construtor
     private Integer dia;
     private Integer mes;
     private Integer ano;
+
+    //#region constantes para limitar dias e meses
     private static final int[] MAX_DIA = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     private static final int[] MAX_DIA_BISEXTO={31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     private static final int MAX_MES=12;
 
-    //Metodo construtor da classe data
+    /**
+    * Construtor padrão com validação dos valores inseridos no dia e mês
+    * @param dia recebe o dia
+    * @param mes recebe o mes
+     * @param  ano recebe o ano
+     */
     public Data(int dia,int mes,int ano) throws InvalidAttributeValueException{
         this.ano=ano;
         if(mes>=1 && mes<=12)this.mes=mes;
@@ -19,7 +29,7 @@ public class Data implements Comparable<Data>{
         else throw new InvalidAttributeValueException("Valor de dia invalido");
     }
 
-    //Metodos get
+    //#region getters
     public int getDia() {
         return dia;
     }
@@ -51,9 +61,10 @@ public class Data implements Comparable<Data>{
         return dias;
     }
 
-    /*
-    * Esse metodo maiorData(Data o) chama o metodo compareTo(o) e compara 2 datas
-    * assim retornando se a data é igual, ou maior que a outra.
+    /**
+    * Método para comparar as datas
+    * @param o para receber a data a ser comparada
+     * @return de qual caso a data se encontra em relação a qual data é a mais futura
     */
     public String maiorData(Data o) {
         return switch (this.compareTo(o)) {
@@ -64,9 +75,9 @@ public class Data implements Comparable<Data>{
         };
     }
 
-    /*
-    * Esse metodo adciona dias na sua data. Caso sua data seja 01/01/2022 e
-    * voce chame esse metodo e adcione 3 dias, sua data passa a ser 04/01/2022
+    /**
+     * Método para aumentar dias ao compromisso
+    * @param dias que acrescenta dias para o compromisso
     */
     public void addDias(int dias){
         this.dia+=dias;
@@ -76,8 +87,10 @@ public class Data implements Comparable<Data>{
         }
     }
 
-    //Metodo adciona meses na sua data
-    public void addMeses(int meses){
+    /**
+     * Método para aumentar dias ao compromisso
+     * @param meses que acrescenta dias para o compromisso
+     */    public void addMeses(int meses){
         int vezes=0;
         this.mes+=meses;
         while(this.mes> MAX_MES){
@@ -87,12 +100,16 @@ public class Data implements Comparable<Data>{
         addAnos(vezes);
     }
 
-    //Metodo que adciona anos na sua data
-    public void addAnos(int anos){
+    /**
+     * Método para aumentar dias ao compromisso
+     * @param anos que acrescenta dias para o compromisso
+     */    public void addAnos(int anos){
         this.ano+=anos;
     }
 
-    //Retorna a data em string no padrao DD/MM/AAAA
+    /**
+    * @return as datas em formato dd/mm/aa
+     */
     @Override
     public String toString() {
         // TODO Auto-generated method stub

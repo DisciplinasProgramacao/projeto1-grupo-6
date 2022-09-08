@@ -3,13 +3,20 @@ import java.util.ArrayList;
 
 public class Agenda {
 
-    //Declaracao e inicializacao das variaveis
+    //#region variaveis para uso do construtor
     private final ArrayList<Data> datas = new ArrayList<>();
     private final ArrayList<String> compromissos = new ArrayList<>();
     private int quantidadeCompromissosNaLista=0;
 
-    //Metodo que adciona compromisso e data nas listas
-    public void adcionarCompromisso(String compromisso, Data data, int repetirCada_X_Dias, int quantidadeDeVezesDoCompromisso) throws InvalidAttributeValueException {
+    /**
+     *
+     * @param compromisso recebe o título do compromisso
+     * @param data recebe a data correspondente
+     * @param repetirCada_X_Dias dias para repetições
+     * @param quantidadeDeVezesDoCompromisso quantidade de repetições
+     * @throws InvalidAttributeValueException valida se houve inserção de dados incorretos
+     */
+    public void addCompromisso(String compromisso, Data data, int repetirCada_X_Dias, int quantidadeDeVezesDoCompromisso) throws InvalidAttributeValueException {
 
         for(int i=0; i<quantidadeDeVezesDoCompromisso; i++){
 
@@ -28,7 +35,10 @@ public class Agenda {
 
     }
 
-    //Metodo que retorna lista de compromissos na ordem COMPROMISSO, DATA
+    /**
+     * Método que prepara o envio dos compromissos formatados
+     * @return datas, compromisos, repetições
+     */
     public String verTodosCompromissos(){
 
         StringBuilder output = new StringBuilder();
@@ -44,8 +54,13 @@ public class Agenda {
         return output.toString();
 
     }
-    
-    // Metodo para listar os commpromissos entre um periodo selecionado
+
+    /**
+     Método que especifica compromissos entre datas
+     * @param dataInicial data de inicio para verificação
+     * @param dataFinal data final para verificação
+     * @return quais são os compromissos
+     */
     public String listarCompromissosEntreDuasDatas(Data dataInicial, Data dataFinal) {
 
         StringBuilder output = new StringBuilder();

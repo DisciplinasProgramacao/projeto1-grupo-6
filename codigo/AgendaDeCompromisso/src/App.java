@@ -14,11 +14,11 @@ public class App {
         Data data_inicial = new Data(15, 10, 2022);
         Data data_final = new Data(15, 11, 2022);
 
-        agenda.adcionarCompromisso("Dentista", data1, 2, 2);
-        agenda.adcionarCompromisso("Ir ao mercado", data2, 0, 1);
-        agenda.adcionarCompromisso("Reuniao", data3, 0, 1);
-        agenda.adcionarCompromisso("Casamento", data4, 0, 1);
-        agenda.adcionarCompromisso("Viagem", data5, 0, 1);
+        agenda.addCompromisso("Dentista", data1, 2, 2);
+        agenda.addCompromisso("Ir ao mercado", data2, 0, 1);
+        agenda.addCompromisso("Reuniao", data3, 0, 1);
+        agenda.addCompromisso("Casamento", data4, 0, 1);
+        agenda.addCompromisso("Viagem", data5, 0, 1);
 
         System.out.println(agenda.verTodosCompromissos());
         

@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AgendaTest {
 
+    //#region criando variáveis
     Data data1;
     Data data2;
     Data data3;
@@ -13,6 +14,7 @@ public class AgendaTest {
     
     Agenda agenda = new Agenda();
 
+    //Inicialização dos construtores
     @BeforeEach
     public void init() throws InvalidAttributeValueException {
         data1 = new Data(20, 7,2022);
@@ -22,15 +24,15 @@ public class AgendaTest {
         data5 = new Data(15, 11, 2022);
 
         //Adciona os compromissos na lista incluindo a data
-        agenda.adcionarCompromisso("Dentista", data1, 2, 2);
-        agenda.adcionarCompromisso("Ir ao mercado", data2, 0, 1);
-        agenda.adcionarCompromisso("Reuniao", data3, 0, 1);
-        agenda.adcionarCompromisso("Casamento", data4, 0, 1);
-        agenda.adcionarCompromisso("Viagem", data5, 0, 1);
+        agenda.addCompromisso("Dentista", data1, 2, 2);
+        agenda.addCompromisso("Ir ao mercado", data2, 0, 1);
+        agenda.addCompromisso("Reuniao", data3, 0, 1);
+        agenda.addCompromisso("Casamento", data4, 0, 1);
+        agenda.addCompromisso("Viagem", data5, 0, 1);
 
     }
 
-    //Verifica se os compromissos foram adcionados na lista de forma correta
+    //Verifica se os compromissos foram adicionados na lista de forma correta
     @Test
     public void verCompromissosNaLista(){
 
