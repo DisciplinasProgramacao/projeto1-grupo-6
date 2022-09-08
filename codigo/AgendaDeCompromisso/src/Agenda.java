@@ -13,12 +13,12 @@ public class Agenda {
      * @param compromisso recebe o título do compromisso
      * @param data recebe a data correspondente
      * @param repetirCada_X_Dias dias para repetições
-     * @param quantidadeDeVezesDoCompromisso quantidade de repetições
+     * @param qtdeVezesCompromisso quantidade de repetições
      * @throws InvalidAttributeValueException valida se houve inserção de dados incorretos
      */
-    public void addCompromisso(String compromisso, Data data, int repetirCada_X_Dias, int quantidadeDeVezesDoCompromisso) throws InvalidAttributeValueException {
+    public void addCompromisso(String compromisso, Data data, int repetirCada_X_Dias, int qtdeVezesCompromisso) throws InvalidAttributeValueException {
 
-        for(int i=0; i<quantidadeDeVezesDoCompromisso; i++){
+        for(int i=0; i<qtdeVezesCompromisso; i++){
 
             int dia = data.getDia();
             int mes = data.getMes();
