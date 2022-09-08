@@ -20,29 +20,41 @@ public class AgendaTest {
         data3 = new Data(15, 10, 2022);
         data4 = new Data(19, 10, 2022);
         data5 = new Data(15, 11, 2022);
-        
+
+        //Adciona os compromissos na lista incluindo a data
         agenda.adcionarCompromisso("Dentista", data1, 2, 2);
         agenda.adcionarCompromisso("Ir ao mercado", data2, 0, 1);
-        agenda.adcionarCompromisso("Reunião", data3, 0, 1);
+        agenda.adcionarCompromisso("Reuniao", data3, 0, 1);
         agenda.adcionarCompromisso("Casamento", data4, 0, 1);
         agenda.adcionarCompromisso("Viagem", data5, 0, 1);
 
     }
 
+    //Verifica se os compromissos foram adcionados na lista de forma correta
     @Test
-    public void criarCompromisso() throws InvalidAttributeValueException {
+    public void verCompromissosNaLista(){
 
-        
-        assertEquals("1-Dentista, 20/07/2022\n2-Dentista, 22/07/2022\n3-Ir ao mercado, 19/12/2022\n", agenda.verTodosCompromissos());
-
-    }
-    
-        @Test
-        public void listarCompromissos() throws InvalidAttributeValueException {
-
-        assertEquals("Compromisso - Reunião: 15/10/2022\nCompromisso - Casamento: 19/10/2022\nCompromisso - Viagem: 15/11/2022", agenda.listarCompromissos(new Data(15, 10, 2022), new Data(15, 11, 2022)) );
-
+        assertEquals("""
+                    1-Dentista, 20/07/2022
+                    2-Dentista, 22/07/2022
+                    3-Ir ao mercado, 19/12/2022
+                    4-Reuniao, 15/10/2022
+                    5-Casamento, 19/10/2022
+                    6-Viagem, 15/11/2022
+                    """, agenda.verTodosCompromissos());
 
     }
+
+    //Verifica os compromissos na lista entre as datas iniciais e finais escolhidas pelo usuario
+    @Test
+    public void listarCompromissosEntreDuasDatas(){
+
+        assertEquals("""
+                    Compromisso - Reuniao: 15/10/2022
+                    Compromisso - Casamento: 19/10/2022
+                    Compromisso - Viagem: 15/11/2022
+                    """, agenda.listarCompromissosEntreDuasDatas(data3, data5));
+
+        }
 
 }

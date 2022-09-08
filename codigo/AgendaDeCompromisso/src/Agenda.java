@@ -45,19 +45,28 @@ public class Agenda {
 
     }
     
-         // Metodo para listar os commpromissos entre um periodo selecionado
-     public String listarCompromissos(Data dataInicial, Data dataFinal) {
+    // Metodo para listar os commpromissos entre um periodo selecionado
+    public String listarCompromissosEntreDuasDatas(Data dataInicial, Data dataFinal) {
+
+        StringBuilder output = new StringBuilder();
 
         for (int i =0; i<datas.size(); i++ ){
 
             if(datas.get(i).compareTo(dataInicial) >= 0) {
                 if(dataFinal.compareTo(datas.get(i)) >= 0) {
-                    System.out.println("Compromisso - " + compromissos.get(i) + ": " + datas.get(i));
+
+                    output.append("Compromisso - ")
+                          .append(compromissos.get(i))
+                          .append(": ")
+                          .append(datas.get(i))
+                          .append("\n");
+
                 }
             }        
-        }       
+        }
 
-        return " ";
+        return output.toString();
+
     }
 
 }
